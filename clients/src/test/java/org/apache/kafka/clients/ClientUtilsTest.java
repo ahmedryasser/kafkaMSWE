@@ -73,6 +73,11 @@ public class ClientUtilsTest {
     }
 
     @Test
+    public void testInvalidPort() {
+        assertThrows(ConfigException.class, () -> checkWithoutLookup("localhost:70000"));
+    }
+
+    @Test
     public void testNoPort() {
         assertThrows(ConfigException.class, () -> checkWithoutLookup("127.0.0.1"));
     }
